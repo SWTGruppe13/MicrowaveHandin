@@ -1,0 +1,5 @@
+C:\Github\SWTExercices\MicrowaveHandin\MicrowaveOvenClasses\bin\Debug\MicrowaveOvenClasses.dll
+C:\Github\SWTExercices\MicrowaveHandin\MicrowaveOvenClasses\bin\Debug\MicrowaveOvenClasses.pdb
+C:\Github\SWTExercices\MicrowaveHandin\MicrowaveOvenClasses\obj\Debug\MicrowaveOvenClasses.csprojAssemblyReference.cache
+C:\Github\SWTExercices\MicrowaveHandin\MicrowaveOvenClasses\obj\Debug\MicrowaveOvenClasses.dll
+C:\Github\SWTExercices\MicrowaveHandin\MicrowaveOvenClasses\obj\Debug\MicrowaveOvenClasses.pdb

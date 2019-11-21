@@ -1,0 +1,9 @@
+C:\Github\SWTExercices\MicrowaveHandin\Microwave.Application\bin\Debug\Microwave.Application.exe.config
+C:\Github\SWTExercices\MicrowaveHandin\Microwave.Application\bin\Debug\Microwave.Application.exe
+C:\Github\SWTExercices\MicrowaveHandin\Microwave.Application\bin\Debug\Microwave.Application.pdb
+C:\Github\SWTExercices\MicrowaveHandin\Microwave.Application\bin\Debug\MicrowaveOvenClasses.dll
+C:\Github\SWTExercices\MicrowaveHandin\Microwave.Application\bin\Debug\MicrowaveOvenClasses.pdb
+C:\Github\SWTExercices\MicrowaveHandin\Microwave.Application\obj\Debug\Microwave.Application.csprojAssemblyReference.cache
+C:\Github\SWTExercices\MicrowaveHandin\Microwave.Application\obj\Debug\Microwave.Application.csproj.CopyComplete
+C:\Github\SWTExercices\MicrowaveHandin\Microwave.Application\obj\Debug\Microwave.Application.exe
+C:\Github\SWTExercices\MicrowaveHandin\Microwave.Application\obj\Debug\Microwave.Application.pdb
