@@ -1,10 +1,13 @@
-﻿using MicrowaveOvenClasses.Boundary;
+﻿using System;
+using MicrowaveOvenClasses.Boundary;
 using MicrowaveOvenClasses.Controllers;
 using MicrowaveOvenClasses.Interfaces;
 using NSubstitute;
+using NSubstitute.Core.Arguments;
+using NSubstitute.ReceivedExtensions;
 using NUnit.Framework;
 
-namespace Microwave.Test.Integration.IntegrationTestSteps
+namespace Microwave.Test.Integration
 {
     [TestFixture]
     public class IT1_CC_DISP
@@ -29,10 +32,21 @@ namespace Microwave.Test.Integration.IntegrationTestSteps
         }
 
         [Test]
-        public void test123()
+        public void Display_receives_OnTimerTick()
         {
+            _uut.StartCooking(50,60);
 
+            _fakeTimer.TimerTick += Raise.EventWith(new object(), new EventArgs());
+
+            _fakeOutput.Received(1).OutputLine(Arg.Any<string>());
         }
 
+        [Test]
+            public void Display_NotReceive_OnTimerTick()
+        {
+            _uut.StartCooking(50,60);
+
+            _fakeOutput.Received(0).OutputLine(Arg.Any<string>());
+        }
     }
 }

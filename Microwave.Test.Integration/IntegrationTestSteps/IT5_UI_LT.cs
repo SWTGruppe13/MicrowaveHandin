@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace Microwave.Test.Integration.IntegrationTestSteps
+namespace Microwave.Test.Integration
 {
     public class IT5_UI_LT
     {

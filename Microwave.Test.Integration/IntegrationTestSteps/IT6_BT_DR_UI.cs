@@ -4,7 +4,7 @@ using MicrowaveOvenClasses.Interfaces;
 using NUnit.Framework;
 using NSubstitute;
 
-namespace Microwave.Test.Integration.IntegrationTestSteps
+namespace Microwave.Test.Integration
 {
     [TestFixture]
     public class IT6_BT_DR_UI
