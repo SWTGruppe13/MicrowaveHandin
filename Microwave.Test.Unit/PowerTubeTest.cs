@@ -57,13 +57,13 @@ namespace Microwave.Test.Unit
         [Test]
         public void TurnOn_HighPower_ThrowsException()
         {
-            Assert.Throws<System.ArgumentOutOfRangeException>(() => uut.TurnOn(101));
+            Assert.Throws<System.ArgumentOutOfRangeException>(() => uut.TurnOn(701));
         }
 
         [Test]
         public void TurnOn_ZeroPower_ThrowsException()
         {
-            Assert.Throws<System.ArgumentOutOfRangeException>(() => uut.TurnOn(0));
+            Assert.Throws<System.ArgumentOutOfRangeException>(() => uut.TurnOn(49));
         }
 
     }

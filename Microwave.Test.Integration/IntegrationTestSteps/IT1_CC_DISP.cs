@@ -7,7 +7,7 @@ using NSubstitute.Core.Arguments;
 using NSubstitute.ReceivedExtensions;
 using NUnit.Framework;
 
-namespace Microwave.Test.Integration
+namespace Microwave.Test.Integration.IntegrationTestSteps
 {
     [TestFixture]
     public class IT1_CC_DISP
