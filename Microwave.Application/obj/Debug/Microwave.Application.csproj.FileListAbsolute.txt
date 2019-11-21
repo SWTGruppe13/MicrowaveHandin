@@ -16,3 +16,12 @@ D:\Dokumenter\Skole\4.semester\SWT\Assignment3\MicrowaveHandin\Microwave.Applica
 D:\Dokumenter\Skole\4.semester\SWT\Assignment3\MicrowaveHandin\Microwave.Application\obj\Debug\Microwave.Application.csproj.CopyComplete
 D:\Dokumenter\Skole\4.semester\SWT\Assignment3\MicrowaveHandin\Microwave.Application\obj\Debug\Microwave.Application.exe
 D:\Dokumenter\Skole\4.semester\SWT\Assignment3\MicrowaveHandin\Microwave.Application\obj\Debug\Microwave.Application.pdb
+D:\IKT\SWT\MicrowaveHandin\Microwave.Application\bin\Debug\Microwave.Application.exe.config
+D:\IKT\SWT\MicrowaveHandin\Microwave.Application\bin\Debug\Microwave.Application.exe
+D:\IKT\SWT\MicrowaveHandin\Microwave.Application\bin\Debug\Microwave.Application.pdb
+D:\IKT\SWT\MicrowaveHandin\Microwave.Application\bin\Debug\MicrowaveOvenClasses.dll
+D:\IKT\SWT\MicrowaveHandin\Microwave.Application\bin\Debug\MicrowaveOvenClasses.pdb
+D:\IKT\SWT\MicrowaveHandin\Microwave.Application\obj\Debug\Microwave.Application.csprojAssemblyReference.cache
+D:\IKT\SWT\MicrowaveHandin\Microwave.Application\obj\Debug\Microwave.Application.csproj.CopyComplete
+D:\IKT\SWT\MicrowaveHandin\Microwave.Application\obj\Debug\Microwave.Application.exe
+D:\IKT\SWT\MicrowaveHandin\Microwave.Application\obj\Debug\Microwave.Application.pdb

@@ -75,9 +75,9 @@ namespace Microwave.Test.Integration
         {
             _uut.StartCooking(80, 60);
 
-            Thread.Sleep(4000);
+            Thread.Sleep(2000);
 
-            _fakeOutput.Received().OutputLine($"Display shows: 0:57");
+            _fakeOutput.Received().OutputLine($"Display shows: 0:59");
         }
     }
 }
