@@ -39,23 +39,46 @@ namespace Microwave.Test.Integration
         [Test]
         public void OnTimerExpiredOutputIsCalled()
         {
-            _uut.StartCooking(20,1);
+            _uut.StartCooking(50,1);
 
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
 
             _fakeOutput.Received().OutputLine($"PowerTube turned off");
         }
 
         [Test]
-        public void dingdong()
+        public void OnTimerExpiredUiIsCalled()
         {
-            _uut.StartCooking(20, 1);
+            _uut.StartCooking(80,2);
 
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
 
-            _fakeOutput.Received().OutputLine($"PowerTube turned off");
+            _fakeUserInterface.Received().CookingIsDone();
         }
 
+        [Test]
+        public void CookingStarted_ThenStopped_OutputCalledOnce_AfterTimeExpired()
+        {
+            _uut.StartCooking(80, 2);
+
+            _uut.Stop();
+
+            Thread.Sleep(3000);
+
+            _fakeOutput.Received(1).OutputLine($"PowerTube turned off");
+        }
+
+
+
+        [Test]
+        public void OnTimerTickOutputCalledCorrectTime()
+        {
+            _uut.StartCooking(80, 60);
+
+            Thread.Sleep(4000);
+
+            _fakeOutput.Received().OutputLine($"Display shows: 0:57");
+        }
     }
 }
 
