@@ -8,3 +8,7 @@ D:\Dokumenter\Skole\4.semester\SWT\Assignment3\MicrowaveHandin\MicrowaveOvenClas
 D:\Dokumenter\Skole\4.semester\SWT\Assignment3\MicrowaveHandin\MicrowaveOvenClasses\obj\Debug\MicrowaveOvenClasses.csprojAssemblyReference.cache
 D:\Dokumenter\Skole\4.semester\SWT\Assignment3\MicrowaveHandin\MicrowaveOvenClasses\obj\Debug\MicrowaveOvenClasses.dll
 D:\Dokumenter\Skole\4.semester\SWT\Assignment3\MicrowaveHandin\MicrowaveOvenClasses\obj\Debug\MicrowaveOvenClasses.pdb
+D:\IKT\SWT\MicrowaveHandin\MicrowaveOvenClasses\bin\Debug\MicrowaveOvenClasses.dll
+D:\IKT\SWT\MicrowaveHandin\MicrowaveOvenClasses\bin\Debug\MicrowaveOvenClasses.pdb
+D:\IKT\SWT\MicrowaveHandin\MicrowaveOvenClasses\obj\Debug\MicrowaveOvenClasses.dll
+D:\IKT\SWT\MicrowaveHandin\MicrowaveOvenClasses\obj\Debug\MicrowaveOvenClasses.pdb
