@@ -48,12 +48,5 @@ namespace Microwave.Test.Integration.IntegrationTestSteps
 
             _fakeOutput.Received(0).OutputLine(Arg.Any<string>());
         }
-
-        [Test]
-        public void Test_name()
-        {
-            
-        }
-
     }
 }
