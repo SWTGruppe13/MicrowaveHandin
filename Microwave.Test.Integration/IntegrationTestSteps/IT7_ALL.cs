@@ -3,7 +3,7 @@ using MicrowaveOvenClasses.Controllers;
 using MicrowaveOvenClasses.Interfaces;
 using NUnit.Framework;
 
-namespace Microwave.Test.Integration.IntegrationTestSteps
+namespace Microwave.Test.Integration
 {
     [TestFixture]
     public class IT7_ALL

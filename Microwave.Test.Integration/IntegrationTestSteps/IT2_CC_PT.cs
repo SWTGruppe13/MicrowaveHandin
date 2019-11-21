@@ -6,7 +6,7 @@ using MicrowaveOvenClasses.Interfaces;
 using NSubstitute;
 using NUnit.Framework;
 
-namespace Microwave.Test.Integration.IntegrationTestSteps
+namespace Microwave.Test.Integration
 {
     [TestFixture]
     public class IT2_CC_PT
