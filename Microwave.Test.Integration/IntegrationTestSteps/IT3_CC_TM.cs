@@ -77,7 +77,7 @@ namespace Microwave.Test.Integration
 
             Thread.Sleep(2000);
 
-            _fakeOutput.Received().OutputLine($"Display shows: 0:59");
+            _fakeOutput.Received().OutputLine($"Display shows: 00:59");
         }
     }
 }
