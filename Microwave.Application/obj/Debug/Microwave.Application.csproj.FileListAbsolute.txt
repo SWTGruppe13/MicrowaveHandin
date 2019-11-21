@@ -7,3 +7,12 @@ C:\Github\SWTExercices\MicrowaveHandin\Microwave.Application\obj\Debug\Microwave
 C:\Github\SWTExercices\MicrowaveHandin\Microwave.Application\obj\Debug\Microwave.Application.csproj.CopyComplete
 C:\Github\SWTExercices\MicrowaveHandin\Microwave.Application\obj\Debug\Microwave.Application.exe
 C:\Github\SWTExercices\MicrowaveHandin\Microwave.Application\obj\Debug\Microwave.Application.pdb
+D:\Dokumenter\Skole\4.semester\SWT\Assignment3\MicrowaveHandin\Microwave.Application\bin\Debug\Microwave.Application.exe.config
+D:\Dokumenter\Skole\4.semester\SWT\Assignment3\MicrowaveHandin\Microwave.Application\bin\Debug\Microwave.Application.exe
+D:\Dokumenter\Skole\4.semester\SWT\Assignment3\MicrowaveHandin\Microwave.Application\bin\Debug\Microwave.Application.pdb
+D:\Dokumenter\Skole\4.semester\SWT\Assignment3\MicrowaveHandin\Microwave.Application\bin\Debug\MicrowaveOvenClasses.dll
+D:\Dokumenter\Skole\4.semester\SWT\Assignment3\MicrowaveHandin\Microwave.Application\bin\Debug\MicrowaveOvenClasses.pdb
+D:\Dokumenter\Skole\4.semester\SWT\Assignment3\MicrowaveHandin\Microwave.Application\obj\Debug\Microwave.Application.csprojAssemblyReference.cache
+D:\Dokumenter\Skole\4.semester\SWT\Assignment3\MicrowaveHandin\Microwave.Application\obj\Debug\Microwave.Application.csproj.CopyComplete
+D:\Dokumenter\Skole\4.semester\SWT\Assignment3\MicrowaveHandin\Microwave.Application\obj\Debug\Microwave.Application.exe
+D:\Dokumenter\Skole\4.semester\SWT\Assignment3\MicrowaveHandin\Microwave.Application\obj\Debug\Microwave.Application.pdb
