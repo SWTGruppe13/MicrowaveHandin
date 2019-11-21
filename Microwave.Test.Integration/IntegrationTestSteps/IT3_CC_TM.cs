@@ -8,7 +8,7 @@ using NUnit.Framework;
 using Timer = MicrowaveOvenClasses.Boundary.Timer;
 
 
-namespace Microwave.Test.Integration.IntegrationTestSteps
+namespace Microwave.Test.Integration
 {
     [TestFixture]
     public class IT3_CC_TMD
