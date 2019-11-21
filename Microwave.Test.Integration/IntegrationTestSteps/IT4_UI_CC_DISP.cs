@@ -30,7 +30,7 @@ namespace Microwave.Test.Integration
         public void SetUp()
         {
             _output = Substitute.For<Output>();
-            _light = Substitute.For<Light>();
+            _light = Substitute.For<Light>(_output);
             _powerButton = Substitute.For<Button>();
             _timeButton = Substitute.For<Button>();
             _startCancelButton = Substitute.For<Button>();
@@ -45,10 +45,18 @@ namespace Microwave.Test.Integration
         }
 
         [Test]
-        public void Test()
+        public void OnPowerPressedFromReadyOutput()
         {
             _powerButton.Press();
             _output.Received().OutputLine("Display shows: 50 W");
+        }
+
+        [Test]
+        public void OnPowerPressedFromSetPowerOutput()
+        {
+            _powerButton.Press();
+            _powerButton.Press();
+            _output.Received().OutputLine("Display shows: 100 W");
         }
     }
 }
