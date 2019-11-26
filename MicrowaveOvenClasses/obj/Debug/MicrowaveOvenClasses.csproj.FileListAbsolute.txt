@@ -12,3 +12,4 @@ D:\IKT\SWT\MicrowaveHandin\MicrowaveOvenClasses\bin\Debug\MicrowaveOvenClasses.d
 D:\IKT\SWT\MicrowaveHandin\MicrowaveOvenClasses\bin\Debug\MicrowaveOvenClasses.pdb
 D:\IKT\SWT\MicrowaveHandin\MicrowaveOvenClasses\obj\Debug\MicrowaveOvenClasses.dll
 D:\IKT\SWT\MicrowaveHandin\MicrowaveOvenClasses\obj\Debug\MicrowaveOvenClasses.pdb
+D:\IKT\SWT\MicrowaveHandin\MicrowaveOvenClasses\obj\Debug\MicrowaveOvenClasses.csprojAssemblyReference.cache
