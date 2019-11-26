@@ -58,5 +58,53 @@ namespace Microwave.Test.Integration
             _powerButton.Press();
             _output.Received().OutputLine("Display shows: 100 W");
         }
+
+        [Test]
+        public void OnTimePressed_From_SetPower_Output()
+        {
+            _powerButton.Press(); // Sets state to SetPower
+            _timeButton.Press();
+            _output.Received().OutputLine("Display shows: 01:00");
+        }
+
+        [Test]
+        public void OnTimePressed_From_SetTime_Output()
+        {
+            _powerButton.Press(); // Sets state to SetPower
+            _timeButton.Press(); // Sets state to SetTime
+            _timeButton.Press();
+            _output.Received().OutputLine("Display shows: 02:00");
+        }
+
+        [Test]
+        public void OnStartCancelPressed_From_SetPower_ClearDisplay_LightOff()
+        {
+            _powerButton.Press(); // Sets state to SetPower
+            _startCancelButton.Press();
+            _output.Received().OutputLine("Display cleared");
+            _light.Received().TurnOff();
+        }
+
+        [Test]
+        public void OnStartCancelPressed_From_SetTime_Display_Clear()
+        {
+            _powerButton.Press(); // Sets state to SetPower
+            _timeButton.Press(); // Sets state to SetTime
+            _startCancelButton.Press();
+            _output.Received().OutputLine("Display cleared");
+            _light.Received().TurnOn();
+            // Called from cook controller
+            _output.Received().OutputLine("PowerTube turned off");
+            _timer.
+        }
+
+        [Test]
+        public void OnStartCancelPressed_From_SetPower_Display_Clear()
+        {
+            _powerButton.Press(); // Sets state to SetPower
+            _startCancelButton.Press();
+            _output.Received().OutputLine("Display cleared");
+            _light.Received().TurnOff();
+        }
     }
 }
