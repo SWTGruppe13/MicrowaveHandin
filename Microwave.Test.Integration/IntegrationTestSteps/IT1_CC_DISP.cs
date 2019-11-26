@@ -12,11 +12,16 @@ namespace Microwave.Test.Integration
     [TestFixture]
     public class IT1_CC_DISP
     {
+        // Substitutes
         private IUserInterface _fakeUi;
         private ITimer _fakeTimer;
         private IPowerTube _fakePowerTube;
         private IOutput _fakeOutput;
+        
+        // uut
         private CookController _uut;
+
+        // Included unit
         private IDisplay _display;
 
         [SetUp]
