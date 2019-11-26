@@ -21,7 +21,6 @@ namespace Microwave.Test.Integration
         private IDisplay _display;
         private IPowerTube _powerTube;
         
-
         [SetUp]
         public void SetUp()
         {
@@ -67,8 +66,6 @@ namespace Microwave.Test.Integration
 
             _fakeOutput.Received(1).OutputLine($"PowerTube turned off");
         }
-
-
 
         [Test]
         public void OnTimerTickOutputCalledCorrectTime()

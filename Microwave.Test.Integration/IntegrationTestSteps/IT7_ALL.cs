@@ -10,16 +10,16 @@ namespace Microwave.Test.Integration
     {
         private Output _uut;
 
-        private IButton _powerButton;
-        private IButton _timeButton;
-        private IButton _startCancelButton;
-        private IDoor _door;
-        private IUserInterface _ui;
-        private ICookController _cookController;
-        private ILight _light;
-        private ITimer _timer;
-        private IDisplay _display;
-        private IPowerTube _powerTube;
+        private Button _powerButton;
+        private Button _timeButton;
+        private Button _startCancelButton;
+        private Door _door;
+        private UserInterface _ui;
+        private CookController _cookController;
+        private Light _light;
+        private Timer _timer;
+        private Display _display;
+        private PowerTube _powerTube;
 
         [SetUp]
         public void SetUp()
@@ -38,6 +38,16 @@ namespace Microwave.Test.Integration
 
             _cookController = new CookController(_timer, _display, _powerTube);
             _ui = new UserInterface(_powerButton, _timeButton, _startCancelButton, _door, _display, _light, _cookController);
+            _cookController.UI = _ui;
+        }
+
+        [Test]
+        public void test()
+        {
+            _powerButton.Press();
+            _timeButton.Press();
+            _startCancelButton.Press();
+
         }
     }
 }
