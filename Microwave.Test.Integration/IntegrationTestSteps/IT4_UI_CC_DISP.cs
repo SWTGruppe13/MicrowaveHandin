@@ -1,4 +1,5 @@
-﻿using MicrowaveOvenClasses.Boundary;
+﻿using System;
+using MicrowaveOvenClasses.Boundary;
 using MicrowaveOvenClasses.Controllers;
 using MicrowaveOvenClasses.Interfaces;
 using NSubstitute;
@@ -29,12 +30,12 @@ namespace Microwave.Test.Integration
         [SetUp]
         public void SetUp()
         {
-            _output = Substitute.For<Output>();
-            _light = Substitute.For<Light>(_output);
-            _powerButton = Substitute.For<Button>();
-            _timeButton = Substitute.For<Button>();
-            _startCancelButton = Substitute.For<Button>();
-            _Door = Substitute.For<Door>();
+            _output = Substitute.For<IOutput>();
+            _light = Substitute.For<ILight>();
+            _powerButton = Substitute.For<IButton>();
+            _timeButton = Substitute.For<IButton>();
+            _startCancelButton = Substitute.For<IButton>();
+            _Door = Substitute.For<IDoor>();
 
             _timer = new Timer();
             _display = new Display(_output);
@@ -47,64 +48,74 @@ namespace Microwave.Test.Integration
         [Test]
         public void OnPowerPressedFromReadyOutput()
         {
-            _powerButton.Press();
+            _uut.OnPowerPressed(_powerButton, EventArgs.Empty); 
             _output.Received().OutputLine("Display shows: 50 W");
         }
 
         [Test]
         public void OnPowerPressedFromSetPowerOutput()
         {
-            _powerButton.Press();
-            _powerButton.Press();
+            _uut.OnPowerPressed(_powerButton, EventArgs.Empty);
+            _uut.OnPowerPressed(_powerButton, EventArgs.Empty);
             _output.Received().OutputLine("Display shows: 100 W");
         }
 
         [Test]
         public void OnTimePressed_From_SetPower_Output()
         {
-            _powerButton.Press(); // Sets state to SetPower
-            _timeButton.Press();
+            _uut.OnPowerPressed(_powerButton, EventArgs.Empty); // Sets state to SetPower
+            _uut.OnTimePressed(_timeButton, EventArgs.Empty);
             _output.Received().OutputLine("Display shows: 01:00");
         }
 
         [Test]
         public void OnTimePressed_From_SetTime_Output()
         {
-            _powerButton.Press(); // Sets state to SetPower
-            _timeButton.Press(); // Sets state to SetTime
-            _timeButton.Press();
+            _uut.OnPowerPressed(_powerButton, EventArgs.Empty); // Sets state to SetPower
+            _uut.OnTimePressed(_timeButton, EventArgs.Empty); // Sets state to SetTime
+            _uut.OnTimePressed(_timeButton, EventArgs.Empty);
             _output.Received().OutputLine("Display shows: 02:00");
         }
 
         [Test]
         public void OnStartCancelPressed_From_SetPower_ClearDisplay_LightOff()
         {
-            _powerButton.Press(); // Sets state to SetPower
-            _startCancelButton.Press();
+            _uut.OnPowerPressed(_powerButton, EventArgs.Empty); // Sets state to SetPower
+            _uut.OnStartCancelPressed(_startCancelButton, EventArgs.Empty);
             _output.Received().OutputLine("Display cleared");
             _light.Received().TurnOff();
         }
 
         [Test]
-        public void OnStartCancelPressed_From_SetTime_Display_Clear()
+        public void OnStartCancelPressed_From_SetTime_ClearDisplay_LightOn_CookingStarted()
         {
-            _powerButton.Press(); // Sets state to SetPower
-            _timeButton.Press(); // Sets state to SetTime
-            _startCancelButton.Press();
+            _uut.OnPowerPressed(_powerButton, EventArgs.Empty); // Sets state to SetPower
+            _uut.OnTimePressed(_timeButton, EventArgs.Empty); // Sets state to SetTime
+            _uut.OnStartCancelPressed(_startCancelButton, EventArgs.Empty);
+
             _output.Received().OutputLine("Display cleared");
             _light.Received().TurnOn();
+
             // Called from cook controller
-            _output.Received().OutputLine("PowerTube turned off");
-            _timer.
+            _output.Received().OutputLine("PowerTube works with 50 W");
+            Assert.That(_timer.TimeRemaining == 60);
         }
 
         [Test]
-        public void OnStartCancelPressed_From_SetPower_Display_Clear()
+        public void OnStartCancelPressed_From_SetPower_ClearDisplay_LightOff_CookingStopped()
         {
-            _powerButton.Press(); // Sets state to SetPower
-            _startCancelButton.Press();
+            _uut.OnPowerPressed(_powerButton, EventArgs.Empty); // Sets state to SetPower
+            _uut.OnTimePressed(_timeButton, EventArgs.Empty); // Sets state to SetTime
+            _uut.OnStartCancelPressed(_startCancelButton, EventArgs.Empty);
+            _uut.OnStartCancelPressed(_startCancelButton, EventArgs.Empty);
+
             _output.Received().OutputLine("Display cleared");
-            _light.Received().TurnOff();
+            _light.Received().TurnOn();
+
+            // Called from cook controller
+            _output.Received().OutputLine("PowerTube turned off");
+            // TIMER TEST
+
         }
     }
 }
