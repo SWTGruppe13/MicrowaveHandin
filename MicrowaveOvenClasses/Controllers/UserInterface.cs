@@ -122,6 +122,7 @@ namespace MicrowaveOvenClasses.Controllers
                     break;
                 case States.COOKING:
                     myCooker.Stop();
+                    myDisplay.Clear(); // Added according to fully-dressed use-case
                     powerLevel = 50;
                     time = 1;
                     myState = States.DOOROPEN;
@@ -151,6 +152,10 @@ namespace MicrowaveOvenClasses.Controllers
                     myLight.TurnOff();
                     // Beep 3 times
                     myState = States.READY;
+                    break;
+                default:
+                    myDisplay.Clear();
+                    myDisplay.Clear();
                     break;
             }
         }
