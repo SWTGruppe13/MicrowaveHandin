@@ -201,5 +201,5 @@ namespace Microwave.Test.Integration
     //        _output.Received(2).OutputLine(Arg.Is("Display cleared"));
     //        _output.Received(1).OutputLine(Arg.Is("Display shows: 00:00"));
     //    }
-    //}
+    }
 }

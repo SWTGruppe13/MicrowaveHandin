@@ -54,15 +54,6 @@ namespace Microwave.Test.Integration
             _output.DidNotReceive().OutputLine("Light is turned off");
         }
 
-        //[Test]
-        //public void OnStartCancelPressed_StateSetPower_LightOn()
-        //{
-        //    _uut.OnPowerPressed(_powerButton, EventArgs.Empty);
-        //    _uut.OnStartCancelPressed(_startCancelButton, EventArgs.Empty);
-            
-        //    _output.Receive().OutputLine("Light is turned off");
-        //}
-
         [Test]
         public void OnStartCancelPressed_StateSetTime_LightTurnsOn() // works
         {

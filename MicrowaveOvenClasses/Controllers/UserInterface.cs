@@ -78,7 +78,7 @@ namespace MicrowaveOvenClasses.Controllers
                 case States.SETPOWER:
                     powerLevel = 50;
                     time = 1;
-                    myLight.TurnOff();
+                    myLight.TurnOff(); // er ikke på SQD eller STM
                     myDisplay.Clear();
                     myState = States.READY;
                     break;
