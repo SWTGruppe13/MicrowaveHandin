@@ -152,6 +152,10 @@ namespace MicrowaveOvenClasses.Controllers
                     // Beep 3 times
                     myState = States.READY;
                     break;
+                default:
+                    myDisplay.Clear();
+                    myDisplay.Clear();
+                    break;
             }
         }
     }
