@@ -114,7 +114,7 @@ namespace Microwave.Test.Integration
 
             // Called from cook controller
             _output.Received().OutputLine("PowerTube turned off");
-            // TIMER TEST
+            // TODO - TIMER TEST
 
         }
     }
