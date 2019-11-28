@@ -20,7 +20,7 @@ namespace Microwave.Test.Integration
 
         // Included units
         private IUserInterface _ui;
-        private ICookController _cookController;
+        private CookController _cookController;
         private ILight _light;
         private ITimer _timer;
         private IDisplay _display;
@@ -48,6 +48,7 @@ namespace Microwave.Test.Integration
             _powerTube = new PowerTube(_output);
             _cookController = new CookController(_timer, _display, _powerTube);
             _ui = new UserInterface(_powerButtonUut, _timeButtonUut, _startCancelButtonUut, _doorUut, _display, _light, _cookController);
+            _cookController.UI = _ui;
         }
 
         // Door open event test
@@ -183,23 +184,26 @@ namespace Microwave.Test.Integration
 
             Thread.Sleep(3000);
             _output.Received(1).OutputLine(Arg.Is("Display cleared"));
+            _output.Received(1).OutputLine(Arg.Is("Light is turned on"));
             _output.Received(1).OutputLine(Arg.Is("Display shows: 01:00"));
             _output.Received(1).OutputLine(Arg.Is("Display shows: 00:59"));
             _output.Received(1).OutputLine(Arg.Is("Display shows: 00:58"));
         }
 
-        // TEST VIRKER MÆRKELIGT. DER MODTAGES KUN 1 DISPLAY CLEARED TODO: FRANK HÆLP
-        //[Test]
-        //public void Time_Equals_1_StartCancelButton_Pressed_Cooking_Time_Expired_Display_Shows_Correct()
-        //{
-        //    _powerButtonUut.Press();
-        //    _timeButtonUut.Press();
-        //    _startCancelButtonUut.Press();
+      //  TEST VIRKER MÆRKELIGT.DER MODTAGES KUN 1 DISPLAY CLEARED TODO: FRANK HÆLP
+      [Test]
+        public void Time_Equals_1_StartCancelButton_Pressed_Cooking_Time_Expired_Display_Shows_Correct()
+        {
+            _powerButtonUut.Press();
+            _timeButtonUut.Press();
+            _startCancelButtonUut.Press();
 
-        //    Thread.Sleep(62000);
-        //    _output.Received(1).OutputLine(Arg.Is("Display cleared"));
-        //    _output.Received(1).OutputLine(Arg.Is("Display shows: 00:00"));
-        //    _output.Received(1).OutputLine(Arg.Is("PowerTube turned off"));
-        //}
+            Thread.Sleep(62000);
+            _output.Received(2).OutputLine(Arg.Is("Display cleared"));
+            _output.Received(1).OutputLine(Arg.Is("Light is turned on"));
+            _output.Received(1).OutputLine(Arg.Is("Display shows: 00:00"));
+            _output.Received(1).OutputLine(Arg.Is("PowerTube turned off"));
+            _output.Received(1).OutputLine(Arg.Is("Light is turned off"));
+        }
     }
 }
