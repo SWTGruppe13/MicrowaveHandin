@@ -46,14 +46,14 @@ namespace Microwave.Test.Integration
         }
 
         [Test]
-        public void OnPowerPressedFromReadyOutput()
+        public void PowerButtonPressedOnce()
         {
             _uut.OnPowerPressed(_powerButton, EventArgs.Empty); 
             _output.Received().OutputLine("Display shows: 50 W");
         }
 
         [Test]
-        public void OnPowerPressedFromSetPowerOutput()
+        public void PowerButtonPressedTwice()
         {
             _uut.OnPowerPressed(_powerButton, EventArgs.Empty);
             _uut.OnPowerPressed(_powerButton, EventArgs.Empty);
@@ -61,20 +61,107 @@ namespace Microwave.Test.Integration
         }
 
         [Test]
-        public void OnTimePressed_From_SetPower_Output()
+        public void PowerButtonPressedMaxAllowedTimes()
+        {
+            for (int i = 0; i < 14; i++)
+            {
+                _uut.OnPowerPressed(_powerButton, EventArgs.Empty);
+            }
+            _output.Received().OutputLine("Display shows: 700 W");
+        }
+
+        [Test]
+        public void PowerButtonPressedOverMaxAllowedTimes()
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                _uut.OnPowerPressed(_powerButton, EventArgs.Empty);
+            }
+            _output.DidNotReceive().OutputLine("Display shows: 750 W");
+            _output.Received(2).OutputLine("Display shows: 50 W");
+        }
+
+        [Test]
+        public void TimeButtonPressed_From_Ready_State()
+        {
+            _uut.OnTimePressed(_timeButton, EventArgs.Empty);
+            _output.DidNotReceiveWithAnyArgs().OutputLine("");
+        }
+
+        [Test]
+        public void TimeButtonPressed_From_SetPower_State()
         {
             _uut.OnPowerPressed(_powerButton, EventArgs.Empty); // Sets state to SetPower
             _uut.OnTimePressed(_timeButton, EventArgs.Empty);
+
             _output.Received().OutputLine("Display shows: 01:00");
         }
 
         [Test]
-        public void OnTimePressed_From_SetTime_Output()
+        public void TimeButtonPressed_Once_From_SetTime_State()
         {
             _uut.OnPowerPressed(_powerButton, EventArgs.Empty); // Sets state to SetPower
             _uut.OnTimePressed(_timeButton, EventArgs.Empty); // Sets state to SetTime
+
             _uut.OnTimePressed(_timeButton, EventArgs.Empty);
+
             _output.Received().OutputLine("Display shows: 02:00");
+        }
+
+        [Test]
+        public void TimeButtonPressed_Twice_From_SetTime_State()
+        {
+            _uut.OnPowerPressed(_powerButton, EventArgs.Empty); // Sets state to SetPower
+            _uut.OnTimePressed(_timeButton, EventArgs.Empty); // Sets state to SetTime
+
+            for (int i = 0; i < 2; i++)
+            {
+                _uut.OnTimePressed(_timeButton, EventArgs.Empty);
+            }
+
+            _output.Received().OutputLine("Display shows: 03:00");
+        }
+
+        [Test]
+        public void TimeButtonPressed_9_Times_From_SetTime_State()
+        {
+            _uut.OnPowerPressed(_powerButton, EventArgs.Empty); // Sets state to SetPower
+            _uut.OnTimePressed(_timeButton, EventArgs.Empty); // Sets state to SetTime
+
+            for (int i = 0; i < 9; i++)
+            {
+                _uut.OnTimePressed(_timeButton, EventArgs.Empty);
+            }
+
+            _output.Received().OutputLine("Display shows: 10:00");
+        }
+
+        [Test]
+        public void TimeButtonPressed_99_Times_From_SetTime_State()
+        {
+            _uut.OnPowerPressed(_powerButton, EventArgs.Empty); // Sets state to SetPower
+            _uut.OnTimePressed(_timeButton, EventArgs.Empty); // Sets state to SetTime
+
+            for (int i = 0; i < 99; i++)
+            {
+                _uut.OnTimePressed(_timeButton, EventArgs.Empty);
+            }
+
+            _output.Received().OutputLine("Display shows: 100:00");
+        }
+
+        [Test]
+        public void TimeButtonPressed_100_Times_From_SetTime_State()
+        {
+            _uut.OnPowerPressed(_powerButton, EventArgs.Empty); // Sets state to SetPower
+            _uut.OnTimePressed(_timeButton, EventArgs.Empty); // Sets state to SetTime
+
+            for (int i = 0; i < 100; i++)
+            {
+                _uut.OnTimePressed(_timeButton, EventArgs.Empty);
+            }
+
+            _output.Received().OutputLine("Display shows: 101:00");
         }
 
         [Test]
@@ -87,35 +174,13 @@ namespace Microwave.Test.Integration
         }
 
         [Test]
-        public void OnStartCancelPressed_From_SetTime_ClearDisplay_LightOn_CookingStarted()
+        public void OnStartCancelPressed_From_SetTime_ClearDisplay()
         {
             _uut.OnPowerPressed(_powerButton, EventArgs.Empty); // Sets state to SetPower
             _uut.OnTimePressed(_timeButton, EventArgs.Empty); // Sets state to SetTime
             _uut.OnStartCancelPressed(_startCancelButton, EventArgs.Empty);
 
-            _output.Received().OutputLine("Display cleared");
-            _light.Received().TurnOn();
-
-            // Called from cook controller
-            _output.Received().OutputLine("PowerTube works with 50 W");
-            Assert.That(_timer.TimeRemaining == 60);
-        }
-
-        [Test]
-        public void OnStartCancelPressed_From_SetPower_ClearDisplay_LightOff_CookingStopped()
-        {
-            _uut.OnPowerPressed(_powerButton, EventArgs.Empty); // Sets state to SetPower
-            _uut.OnTimePressed(_timeButton, EventArgs.Empty); // Sets state to SetTime
-            _uut.OnStartCancelPressed(_startCancelButton, EventArgs.Empty);
-            _uut.OnStartCancelPressed(_startCancelButton, EventArgs.Empty);
-
-            _output.Received().OutputLine("Display cleared");
-            _light.Received().TurnOn();
-
-            // Called from cook controller
-            _output.Received().OutputLine("PowerTube turned off");
-            // TODO - TIMER TEST
-
+            _output.Received().OutputLine("Display cleared"); 
         }
     }
 }

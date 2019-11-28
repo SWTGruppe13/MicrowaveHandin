@@ -47,8 +47,23 @@ namespace Microwave.Application
             // The simple sequence should now run
 
             System.Console.WriteLine("When you press enter, the program will stop");
-            // Wait for input
 
+            //Output output = new Output();
+            //Light light = new Light(output);
+            //Display display = new Display(output);
+            //PowerTube powerTube = new PowerTube(output);
+
+            //light.TurnOn();
+            //light.TurnOff();
+            //Console.WriteLine();
+            //display.ShowPower(100);
+            //display.ShowTime(10, 10);
+            //display.Clear();
+            //Console.WriteLine();
+            //powerTube.TurnOff();
+            //powerTube.TurnOn(50);
+
+            // Wait for input
             System.Console.ReadLine();
         }
     }

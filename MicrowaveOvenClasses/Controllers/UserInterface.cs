@@ -78,7 +78,7 @@ namespace MicrowaveOvenClasses.Controllers
                 case States.SETPOWER:
                     powerLevel = 50;
                     time = 1;
-                    myLight.TurnOff();
+                    myLight.TurnOff(); // er ikke på SQD eller STM
                     myDisplay.Clear();
                     myState = States.READY;
                     break;
@@ -122,6 +122,7 @@ namespace MicrowaveOvenClasses.Controllers
                     break;
                 case States.COOKING:
                     myCooker.Stop();
+                    myDisplay.Clear(); // Added according to fully-dressed use-case
                     powerLevel = 50;
                     time = 1;
                     myState = States.DOOROPEN;
